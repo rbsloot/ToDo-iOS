@@ -22,6 +22,8 @@
 		C42AC67318D0B06800668C64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42AC65218D0B06600668C64 /* UIKit.framework */; };
 		C42AC67B18D0B06800668C64 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C42AC67918D0B06800668C64 /* InfoPlist.strings */; };
 		C42AC67D18D0B06800668C64 /* ToDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC67C18D0B06800668C64 /* ToDoTests.m */; };
+		C42AC68918D0B3AB00668C64 /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC68818D0B3AB00668C64 /* APIController.m */; };
+		C42AC69318D0B7CF00668C64 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC69218D0B7CF00668C64 /* LoginController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		C42AC67818D0B06800668C64 /* ToDoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ToDoTests-Info.plist"; sourceTree = "<group>"; };
 		C42AC67A18D0B06800668C64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C42AC67C18D0B06800668C64 /* ToDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoTests.m; sourceTree = "<group>"; };
+		C42AC68718D0B3AB00668C64 /* APIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIController.h; path = Controllers/APIController.h; sourceTree = "<group>"; };
+		C42AC68818D0B3AB00668C64 /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIController.m; path = Controllers/APIController.m; sourceTree = "<group>"; };
+		C42AC69118D0B7CF00668C64 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Controllers/LoginController.h; sourceTree = "<group>"; };
+		C42AC69218D0B7CF00668C64 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = Controllers/LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,8 @@
 		C42AC65418D0B06700668C64 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				C42AC68A18D0B3AF00668C64 /* Controllers */,
+				C42AC68618D0B35800668C64 /* Models */,
 				C42AC65D18D0B06700668C64 /* AppDelegate.h */,
 				C42AC65E18D0B06700668C64 /* AppDelegate.m */,
 				C42AC66018D0B06700668C64 /* Main_iPhone.storyboard */,
@@ -153,6 +161,24 @@
 				C42AC67918D0B06800668C64 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C42AC68618D0B35800668C64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C42AC68A18D0B3AF00668C64 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C42AC68718D0B3AB00668C64 /* APIController.h */,
+				C42AC68818D0B3AB00668C64 /* APIController.m */,
+				C42AC69118D0B7CF00668C64 /* LoginController.h */,
+				C42AC69218D0B7CF00668C64 /* LoginController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42AC69318D0B7CF00668C64 /* LoginController.m in Sources */,
+				C42AC68918D0B3AB00668C64 /* APIController.m in Sources */,
 				C42AC66818D0B06800668C64 /* ViewController.m in Sources */,
 				C42AC65F18D0B06700668C64 /* AppDelegate.m in Sources */,
 				C42AC65B18D0B06700668C64 /* main.m in Sources */,
