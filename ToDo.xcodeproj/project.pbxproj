@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4212D6118EC39EA00124483 /* TaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4212D6018EC39EA00124483 /* TaskController.m */; };
+		C4212D6818EC468500124483 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4212D6718EC468500124483 /* TaskCell.m */; };
 		C42AC64F18D0B06600668C64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42AC64E18D0B06600668C64 /* Foundation.framework */; };
 		C42AC65118D0B06600668C64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42AC65018D0B06600668C64 /* CoreGraphics.framework */; };
 		C42AC65318D0B06600668C64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42AC65218D0B06600668C64 /* UIKit.framework */; };
@@ -24,6 +26,16 @@
 		C42AC67D18D0B06800668C64 /* ToDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC67C18D0B06800668C64 /* ToDoTests.m */; };
 		C42AC68918D0B3AB00668C64 /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC68818D0B3AB00668C64 /* APIController.m */; };
 		C42AC69318D0B7CF00668C64 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42AC69218D0B7CF00668C64 /* LoginController.m */; };
+		C4487A3618DC812C0098F27B /* MainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487A3518DC812C0098F27B /* MainUtils.m */; };
+		C44DD2A918EEB3E600F5FDDD /* UserController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DD2A818EEB3E600F5FDDD /* UserController.m */; };
+		C44DD2AC18EEC59900F5FDDD /* DialogHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DD2AB18EEC59900F5FDDD /* DialogHandler.m */; };
+		C44DD2AF18EEC8C700F5FDDD /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DD2AE18EEC8C700F5FDDD /* RegisterController.m */; };
+		C44DD2B218EEDEC700F5FDDD /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DD2B118EEDEC700F5FDDD /* List.m */; };
+		C44DD2B518EEDF0400F5FDDD /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DD2B418EEDF0400F5FDDD /* BaseModel.m */; };
+		C44DD2B818EEDF9F00F5FDDD /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DD2B718EEDF9F00F5FDDD /* Task.m */; };
+		C4976B9318E9645A007600C3 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = C4976B9218E9645A007600C3 /* Board.m */; };
+		C4E25FB018D34492009CAAE0 /* BoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E25FAF18D34492009CAAE0 /* BoardController.m */; };
+		C4E25FB318D346DB009CAAE0 /* ListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E25FB218D346DB009CAAE0 /* ListController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4212D5F18EC39EA00124483 /* TaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskController.h; path = Controllers/TaskController.h; sourceTree = "<group>"; };
+		C4212D6018EC39EA00124483 /* TaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskController.m; path = Controllers/TaskController.m; sourceTree = "<group>"; };
+		C4212D6618EC468500124483 /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
+		C4212D6718EC468500124483 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
 		C42AC64B18D0B06600668C64 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42AC64E18D0B06600668C64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C42AC65018D0B06600668C64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,6 +77,26 @@
 		C42AC68818D0B3AB00668C64 /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIController.m; path = Controllers/APIController.m; sourceTree = "<group>"; };
 		C42AC69118D0B7CF00668C64 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Controllers/LoginController.h; sourceTree = "<group>"; };
 		C42AC69218D0B7CF00668C64 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = Controllers/LoginController.m; sourceTree = "<group>"; };
+		C4487A3418DC812C0098F27B /* MainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainUtils.h; path = Utils/MainUtils.h; sourceTree = "<group>"; };
+		C4487A3518DC812C0098F27B /* MainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainUtils.m; path = Utils/MainUtils.m; sourceTree = "<group>"; };
+		C44DD2A718EEB3E600F5FDDD /* UserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserController.h; path = AppControllers/UserController.h; sourceTree = "<group>"; };
+		C44DD2A818EEB3E600F5FDDD /* UserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserController.m; path = AppControllers/UserController.m; sourceTree = "<group>"; };
+		C44DD2AA18EEC59900F5FDDD /* DialogHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogHandler.h; path = Utils/DialogHandler.h; sourceTree = "<group>"; };
+		C44DD2AB18EEC59900F5FDDD /* DialogHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogHandler.m; path = Utils/DialogHandler.m; sourceTree = "<group>"; };
+		C44DD2AD18EEC8C700F5FDDD /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterController.h; path = Controllers/RegisterController.h; sourceTree = "<group>"; };
+		C44DD2AE18EEC8C700F5FDDD /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterController.m; path = Controllers/RegisterController.m; sourceTree = "<group>"; };
+		C44DD2B018EEDEC700F5FDDD /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = Models/List.h; sourceTree = "<group>"; };
+		C44DD2B118EEDEC700F5FDDD /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = Models/List.m; sourceTree = "<group>"; };
+		C44DD2B318EEDF0400F5FDDD /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseModel.h; path = Models/BaseModel.h; sourceTree = "<group>"; };
+		C44DD2B418EEDF0400F5FDDD /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = Models/BaseModel.m; sourceTree = "<group>"; };
+		C44DD2B618EEDF9F00F5FDDD /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = Models/Task.h; sourceTree = "<group>"; };
+		C44DD2B718EEDF9F00F5FDDD /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = Models/Task.m; sourceTree = "<group>"; };
+		C4976B9118E9645A007600C3 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Board.h; path = Models/Board.h; sourceTree = "<group>"; };
+		C4976B9218E9645A007600C3 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Board.m; path = Models/Board.m; sourceTree = "<group>"; };
+		C4E25FAE18D34492009CAAE0 /* BoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardController.h; path = Controllers/BoardController.h; sourceTree = "<group>"; };
+		C4E25FAF18D34492009CAAE0 /* BoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardController.m; path = Controllers/BoardController.m; sourceTree = "<group>"; };
+		C4E25FB118D346DB009CAAE0 /* ListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListController.h; path = Controllers/ListController.h; sourceTree = "<group>"; };
+		C4E25FB218D346DB009CAAE0 /* ListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListController.m; path = Controllers/ListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +123,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4212D6218EC452A00124483 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4212D6618EC468500124483 /* TaskCell.h */,
+				C4212D6718EC468500124483 /* TaskCell.m */,
+			);
+			name = TableCell;
+			sourceTree = "<group>";
+		};
 		C42AC64218D0B06600668C64 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +165,9 @@
 		C42AC65418D0B06700668C64 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				C44DD2A618EEB3B900F5FDDD /* AppControllers */,
+				C4212D6218EC452A00124483 /* TableCell */,
+				C4487A3018DC80C00098F27B /* Utils */,
 				C42AC68A18D0B3AF00668C64 /* Controllers */,
 				C42AC68618D0B35800668C64 /* Models */,
 				C42AC65D18D0B06700668C64 /* AppDelegate.h */,
@@ -166,6 +214,14 @@
 		C42AC68618D0B35800668C64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4976B9118E9645A007600C3 /* Board.h */,
+				C4976B9218E9645A007600C3 /* Board.m */,
+				C44DD2B018EEDEC700F5FDDD /* List.h */,
+				C44DD2B118EEDEC700F5FDDD /* List.m */,
+				C44DD2B318EEDF0400F5FDDD /* BaseModel.h */,
+				C44DD2B418EEDF0400F5FDDD /* BaseModel.m */,
+				C44DD2B618EEDF9F00F5FDDD /* Task.h */,
+				C44DD2B718EEDF9F00F5FDDD /* Task.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -177,8 +233,36 @@
 				C42AC68818D0B3AB00668C64 /* APIController.m */,
 				C42AC69118D0B7CF00668C64 /* LoginController.h */,
 				C42AC69218D0B7CF00668C64 /* LoginController.m */,
+				C4E25FAE18D34492009CAAE0 /* BoardController.h */,
+				C4E25FAF18D34492009CAAE0 /* BoardController.m */,
+				C4E25FB118D346DB009CAAE0 /* ListController.h */,
+				C4E25FB218D346DB009CAAE0 /* ListController.m */,
+				C4212D5F18EC39EA00124483 /* TaskController.h */,
+				C4212D6018EC39EA00124483 /* TaskController.m */,
+				C44DD2AD18EEC8C700F5FDDD /* RegisterController.h */,
+				C44DD2AE18EEC8C700F5FDDD /* RegisterController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C4487A3018DC80C00098F27B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C4487A3418DC812C0098F27B /* MainUtils.h */,
+				C4487A3518DC812C0098F27B /* MainUtils.m */,
+				C44DD2AA18EEC59900F5FDDD /* DialogHandler.h */,
+				C44DD2AB18EEC59900F5FDDD /* DialogHandler.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		C44DD2A618EEB3B900F5FDDD /* AppControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C44DD2A718EEB3E600F5FDDD /* UserController.h */,
+				C44DD2A818EEB3E600F5FDDD /* UserController.m */,
+			);
+			name = AppControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,10 +363,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44DD2B218EEDEC700F5FDDD /* List.m in Sources */,
+				C44DD2AC18EEC59900F5FDDD /* DialogHandler.m in Sources */,
+				C44DD2B518EEDF0400F5FDDD /* BaseModel.m in Sources */,
+				C4212D6118EC39EA00124483 /* TaskController.m in Sources */,
+				C4E25FB318D346DB009CAAE0 /* ListController.m in Sources */,
+				C4E25FB018D34492009CAAE0 /* BoardController.m in Sources */,
+				C44DD2AF18EEC8C700F5FDDD /* RegisterController.m in Sources */,
+				C4212D6818EC468500124483 /* TaskCell.m in Sources */,
 				C42AC69318D0B7CF00668C64 /* LoginController.m in Sources */,
 				C42AC68918D0B3AB00668C64 /* APIController.m in Sources */,
+				C44DD2A918EEB3E600F5FDDD /* UserController.m in Sources */,
+				C4487A3618DC812C0098F27B /* MainUtils.m in Sources */,
 				C42AC66818D0B06800668C64 /* ViewController.m in Sources */,
+				C4976B9318E9645A007600C3 /* Board.m in Sources */,
 				C42AC65F18D0B06700668C64 /* AppDelegate.m in Sources */,
+				C44DD2B818EEDF9F00F5FDDD /* Task.m in Sources */,
 				C42AC65B18D0B06700668C64 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +594,7 @@
 				C42AC68218D0B06800668C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C42AC68318D0B06800668C64 /* Build configuration list for PBXNativeTarget "ToDoTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +603,7 @@
 				C42AC68518D0B06800668C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

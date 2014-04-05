@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum REQUEST_METHOD{GET, POST, PUT, DELETE} REQUEST_METHOD;
+typedef void(^APICallback)(NSData *, int);
+
 @interface APIController : NSObject
+
++(void)request:(REQUEST_METHOD)method
+    controller:(NSString *)controller
+        action:(NSString *) action
+   queryString:(NSMutableDictionary *) queryString
+          args:(NSMutableDictionary *)args
+      callback:() callback;
 
 @end

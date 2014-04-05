@@ -1,32 +1,25 @@
 //
-//  LoginController.m
+//  RegisterController.m
 //  ToDo
 //
-//  Created by Remi Sloot on 12/03/14.
+//  Created by Remi Sloot on 04/04/14.
 //  Copyright (c) 2014 Avans. All rights reserved.
 //
 
-#import "LoginController.h"
+#import "RegisterController.h"
 #import "APIController.h"
-#import "BoardController.h"
-#import "UserController.h"
 #import "DialogHandler.h"
+#import "APIController.h"
 
-// https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/NavigationControllers.html
+@interface RegisterController ()
 
-@interface LoginController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-
-@property (strong, nonatomic) NSUserDefaults *defaults;
+@property (weak, nonatomic) IBOutlet UITextField *repasswordTextField;
 
 @end
 
-@implementation LoginController
-
--(NSUserDefaults *)defaults {
-    return [NSUserDefaults standardUserDefaults];
-}
+@implementation RegisterController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,24 +36,22 @@
     // Do any additional setup after loading the view.
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    if([self.defaults objectForKey:@"token"]) {
-        [self goTo:@"RootView"];
-    }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)backClick:(id)sender {
+    [self goToLogin];
+}
 
-- (IBAction)loginClick:(UIButton *)sender {
+- (IBAction)registerClick:(id)sender {
+    
     NSString *name = [self.usernameTextField text];
     NSString *password = [self.passwordTextField text];
+    NSString *repassword = [self.repasswordTextField text];
+    
     BOOL valid = YES;
     
     NSString *message = @"";
@@ -73,25 +64,44 @@
         valid = NO;
     }
     
+    if(!repassword || [repassword isEqualToString:@""]) {
+        message = [message stringByAppendingString:@"Retyped password cannot be empty\n"];
+        valid = NO;
+    }
+    
+    if(![password isEqualToString:repassword]) {
+        message = [message stringByAppendingString:@"Passwords not matching\n"];
+        valid = NO;
+    }
+    
     if(valid) {
-        [UserController login:name password:password onComplete:^(NSString *token) {
-            [self.defaults setObject:token forKey:@"token"];
-            [self.defaults synchronize];
+        NSMutableDictionary *args = [[NSMutableDictionary alloc]init];
+        [args setObject:name forKey:@"name"];
+        [args setObject:password forKey:@"password"];
         
-            [self goTo:@"RootView"];
+        [APIController request:POST controller:@"user" action:@"register" queryString:nil args:args callback:^(NSData *data, int statusCode) {
+            
+            if(statusCode >= 200 && statusCode < 300) {
+                [self goToLogin];
+            } else if(statusCode == 409) {
+                [[DialogHandler showErrorDialog:@"Conflict error" message:@"This username already exists"] show];
+            }
         }];
     } else {
         [[DialogHandler showErrorDialog:@"Input error" message:message] show];
     }
+    
 }
 
-- (IBAction)registerClick:(id)sender {
-    [self goTo:@"RegisterController"];
+-(void)goToLogin {
+    UINavigationController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginController"];
+    [self presentViewController:controller animated:NO completion:nil];
 }
 
--(void)goTo:(NSString *)controller {
-    UINavigationController *rootController = [self.storyboard instantiateViewControllerWithIdentifier:controller];
-    [self presentViewController:rootController animated:NO completion:nil];
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+
+    return YES;
 }
 
 /*
@@ -102,9 +112,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    [segue destinationViewController];
 }
- */
-
+*/
 
 @end

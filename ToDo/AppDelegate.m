@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BoardController.h"
 
 @implementation AppDelegate
 
@@ -41,6 +42,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)applicationDidFinishLaunching:(UIApplication *)application {
+    UIViewController *rootController = [[BoardController alloc]init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootController];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
 }
 
 @end
