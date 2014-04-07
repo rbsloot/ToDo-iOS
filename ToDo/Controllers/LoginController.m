@@ -12,7 +12,6 @@
 #import "UserController.h"
 #import "DialogHandler.h"
 
-// https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewControllerCatalog/Chapters/NavigationControllers.html
 
 @interface LoginController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;

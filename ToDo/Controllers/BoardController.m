@@ -21,6 +21,8 @@
 @property (weak, nonatomic) UITextField *addBoardTextField;
 @property (strong, nonatomic) UIAlertView *alert;
 
+@property (nonatomic) BOOL isDeleting;
+
 @end
 
 @implementation BoardController
@@ -45,6 +47,7 @@
 {
     [super viewDidLoad];
     
+    self.isDeleting = NO;
     [self initDialogs];
 }
 
@@ -204,26 +207,27 @@
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // delete your data item here
-        // Animate the deletion from the table.
-        Board *board = [self.boards objectAtIndex:indexPath.item];
-        if(board) {
-            NSMutableDictionary *args = [[NSMutableDictionary alloc]init];
-            [args setObject:board.id forKey:@"bid"];
+    if(!self.isDeleting) {
+        self.isDeleting = YES;
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            // delete your data item here
+            // Animate the deletion from the table.
+            Board *board = [self.boards objectAtIndex:indexPath.item];
+            if(board) {
+                NSMutableDictionary *args = [[NSMutableDictionary alloc]init];
+                [args setObject:board.id forKey:@"bid"];
             
-            [APIController request:DELETE controller:@"board" action:nil queryString:nil args:args callback:^(NSData *data, int statusCode) {
+                [APIController request:DELETE controller:@"board" action:nil queryString:nil args:args callback:^(NSData *data, int statusCode) {
                 
-                if(statusCode >= 200 && statusCode < 300) {
-                    [self.boards removeObjectAtIndex:indexPath.item];
-                    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                }
-            }];
-            
+                    if(statusCode >= 200 && statusCode < 300) {
+                        [self.boards removeObjectAtIndex:indexPath.item];
+                        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                        
+                        self.isDeleting = NO;
+                    }
+                }];
+            }
         }
-        
-        
-        
     }
 }
 

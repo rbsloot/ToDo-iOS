@@ -9,7 +9,7 @@
 #import "ListController.h"
 #import "APIController.h"
 #import "TaskController.h"
-#import "List.h";
+#import "List.h"
 
 @interface ListController ()
 
@@ -18,6 +18,8 @@
 
 @property (weak, nonatomic) UITextField *addListTextField;
 @property (strong, nonatomic) UIAlertView *alert;
+
+@property (nonatomic) BOOL isDeleting;
 
 @end
 
@@ -43,6 +45,7 @@
 {
     [super viewDidLoad];
     
+    self.isDeleting = NO;
     [self initDialogs];
 }
 
@@ -168,25 +171,28 @@
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if(!self.isDeleting) {
+        self.isDeleting = YES;
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        List *list = [self.lists objectAtIndex:indexPath.item];
-        if(list) {
-            NSMutableDictionary *args = [[NSMutableDictionary alloc]init];
-            [args setObject:list.id forKey:@"id"];
+            List *list = [self.lists objectAtIndex:indexPath.item];
+            if(list) {
+                NSMutableDictionary *args = [[NSMutableDictionary alloc]init];
+                [args setObject:list.id forKey:@"id"];
             
-            [APIController request:DELETE controller:@"list" action:nil queryString:nil args:args callback:^(NSData *data, int statusCode) {
+                [APIController request:DELETE controller:@"list" action:nil queryString:nil args:args callback:^(NSData *data, int statusCode) {
                 
-                if(statusCode >= 200 && statusCode < 300) {
-                    [self.lists removeObjectAtIndex:indexPath.item];
-                    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                }
-            }];
+                    if(statusCode >= 200 && statusCode < 300) {
+                        [self.lists removeObjectAtIndex:indexPath.item];
+                        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                        self.isDeleting = NO;
+                    }
+                }];
             
+            }
+        
+        
         }
-        
-        
-        
     }
 }
 

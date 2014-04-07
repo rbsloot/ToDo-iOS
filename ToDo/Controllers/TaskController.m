@@ -19,6 +19,8 @@
 @property (weak, nonatomic) UITextField *addTaskTextField;
 @property (strong, nonatomic) UIAlertView *alert;
 
+@property (nonatomic) BOOL isDeleting;
+
 @end
 
 @implementation TaskController
@@ -36,6 +38,7 @@
 {
     [super viewDidLoad];
     
+    self.isDeleting = NO;
     [self initDialogs];
 }
 
@@ -172,24 +175,26 @@
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if(!self.isDeleting) {
+        self.isDeleting = YES;
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        Task *task = [self.tasks objectAtIndex:indexPath.item];
-        if(task) {
-            NSMutableDictionary *args = [[NSMutableDictionary alloc]init];
-            [args setObject:task.id forKey:@"id"];
+            Task *task = [self.tasks objectAtIndex:indexPath.item];
+            if(task) {
+                NSMutableDictionary *args = [[NSMutableDictionary alloc]init];
+                [args setObject:task.id forKey:@"id"];
             
-            [APIController request:DELETE controller:@"task" action:nil queryString:nil args:args callback:^(NSData *data, int statusCode) {
+                [APIController request:DELETE controller:@"task" action:nil queryString:nil args:args callback:^(NSData *data, int statusCode) {
                 
-                if(statusCode >= 200 && statusCode < 300) {
-                    [self.tasks removeObjectAtIndex:indexPath.item];
-                    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                }
-            }];
+                    if(statusCode >= 200 && statusCode < 300) {
+                        [self.tasks removeObjectAtIndex:indexPath.item];
+                        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                        
+                        self.isDeleting = NO;
+                    }
+                }];
+            }
         }
-        
-        
-        
     }
 }
 
